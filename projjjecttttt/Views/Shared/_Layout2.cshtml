@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewData["Title"] = "_Layout2";
+    
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/23166ada91.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="~/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700|Source+Sans+Pro:300,400|Kaushan+Script|Lora|Playfair+Display:700"
+        rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Google+Sans+Text:400&amp;text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93" />
+</head>
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100">
+        <div class="container">
+            <a class="navbar-brand" asp-controller="Home" asp-action="Index">Air B<span>N</span>B</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto  pb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="unit" asp-action="Index">Our Units</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="unit" asp-action="create">Add Unit</a>
+                    </li>
+
+                </ul>
+                <ul class="nav-component navbar-nav d-flex">
+                    <partial name="_LoginPartial" />
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <!--8888888888888888888888888888888888888888888888888888888888888888888  -->
+  <div class="">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        @*
+        <div id="google_translate_element" asp-area="Identity"></div>
+        <script type="text/javascript" src="/js/site.js"> </script>*@
+     @*   <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+        </script>*@
+    </div>
+
+<!-- 88888888888888888888888888888888888888888888888888888888888888888 -->
+@*<footer>
+    <p>Copyright Â© 2021 <span style="color: #eff3f4;">Air BNB</span>. All Rights Reserved.</p>
+    <div class="next">
+        <a style="border-right:1px solid #999d9e ;" href="">Terms & Policy</a>
+        <a href="">Disclaimer</a>
+    </div>
+</footer>*@
+    <script src="~/js/all.min.js" asp-append-version="true"></script>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+
+        @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+  
+
+
+   
+
+</body>
+</html>
+
+

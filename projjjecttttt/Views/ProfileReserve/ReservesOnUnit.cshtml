@@ -1,0 +1,114 @@
+﻿@model IEnumerable<projjjecttttt.Models.Reserve>
+
+@{
+    ViewData["Title"] = "UserReserve";
+}
+
+<pre>
+
+
+
+
+</pre>
+<section class="product">
+
+    <button class="pre-btn"><img src="~/Images/arrow.png" alt=""></button>
+    <button class="nxt-btn"><img src="~/Images/arrow.png" alt=""></button>
+
+        <div class="container product-container ">
+
+             @foreach (var item in Model)
+            {
+            var imgUnitId = item.IdImg;
+
+            <div class="profile">
+
+                <div class="card border  border-2 shadow profilesize">
+
+                    <div class="card-body ContentSize">
+                        <h5 class="card-title"> </h5>
+                        <div class="card-text">
+                            <div class="row">
+                                <form>
+                                    <div>
+                                      <div class="">
+                                        
+                                        <input class="form-control mb-3" type="text" value="@Html.DisplayFor(modelItem => item.Checkin)"
+                                               aria-label="Disabled input example" disabled readonly>
+                                       </div>
+
+                                       <div class="">
+                                            <input class="form-control mb-3" type="text" value="       @Html.DisplayFor(modelItem => item.Checkout) "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                       </div>
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="   @Html.DisplayFor(modelItem => item.GuestNum)"
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="    @Html.DisplayFor(modelItem => item.Phone)  "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="  @Html.DisplayFor(modelItem => item.User.UserName) "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+                                                <div class=" mb-3 ">
+                                                    <div>
+                                                        <label class="">ID Image</label>
+                                                    </div>
+
+                                            @if (imgUnitId.Count() > 0)
+                                            {
+                                                <img src="~/Images/@item.IdImg" class="m-1 rounded-2 imgSize" alt="...">
+                                            }
+                                            else
+                                            {
+                                                <img src="" class=" m-1 rounded-2 imgSize" alt="...">
+                                            }
+
+                                             
+                                                </div>
+
+
+                                          
+                                    </div>
+                                </form>
+                           
+                            </div>
+                      
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+            }
+        </div>
+
+
+    <div class="container ">
+        <div class="row  align-items-center ">
+            <div class=" row  border border-info rounded-3 mt-5 col-6 offset-md-3 py-2 bg-white">
+
+                <h3 class="text-primary">
+                    If you Have Reserve On Your Unit and YOU Want To Cancel It !!
+                </h3><h2 class="text-danger"> You Can Contact With Client On His Phone .</h2>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+        
+   

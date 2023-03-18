@@ -1,0 +1,100 @@
+﻿@model IEnumerable<projjjecttttt.Models.Reserve>
+
+@{
+    ViewData["Title"] = "UserReserve";
+}
+
+
+
+<pre>
+
+
+
+
+
+
+</pre>
+
+
+<section class="product">
+
+    <button class="pre-btn"><img src="~/Images/arrow.png" alt=""></button>
+    <button class="nxt-btn"><img src="~/Images/arrow.png" alt=""></button>
+   
+
+        <div class="container product-container ">
+             @foreach (var item in Model)
+            {
+            <div class="profile">
+
+                <div class="card border  border-2 shadow reservesize">
+
+                    <div class="card-body ContentSize">
+                        <h5 class="card-title"> </h5>
+                        <div class="card-text">
+                            <div class="row">
+                                <form>
+                                    <div>
+                                        
+                                          
+
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="@Html.DisplayFor(modelItem => item.Checkin) "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="  @Html.DisplayFor(modelItem => item.Checkout) "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="   @Html.DisplayFor(modelItem => item.GuestNum) "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+
+                                                <div class="">
+                                            <input class="form-control mb-3" type="text" value="      @Html.DisplayFor(modelItem => item.Phone)  "
+                                                           aria-label="Disabled input example" disabled readonly>
+                                                </div>
+
+
+                                                <div class="mt-5">
+                                                    <div class="">
+                                                    
+
+                                                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-info w-100 mb-3">Delete</a>
+                                
+
+                                                    </div>
+                                                    <div class="">
+                                                     
+
+                                                <a asp-action="Details" asp-controller="Unit" asp-route-id="@item.UnitID" class="btn btn-info w-100 mb-3">Reserved Unit</a>
+
+
+                                                    </div>
+                                                </div>
+
+
+                                        
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+            </div>
+            }
+        </div>
+</section>

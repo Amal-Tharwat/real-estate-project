@@ -1,0 +1,148 @@
+﻿@model projjjecttttt.Models.Reserve
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-7">
+                    <div class="booking-cta">
+                        <h1>Make your reservation</h1>
+                        <p>
+                           Helping you find the property of your dreams.</br >
+                            We will lead you the way home.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-pull-5">
+                    <div class="booking-form">
+                            @if (ViewBag.flag == false)
+                        {
+                            <div class="alert alert-danger text-primary">
+                                <h2>Unforthenately This Day Is Reserved , Please Choose Another Day </h2>
+                            </div>
+                        }
+                        <form asp-controller="Reserve" asp-action="Create" method="post" enctype="multipart/form-data">
+
+                            <div class="form-group" hidden>
+                                <label asp-for="UnitID" class="control-label form-label"></label>
+                                <select name="unitId" asp-for="UnitID" class="form-control" hidden>
+                                    <option>@ViewBag.id</option>
+                                </select>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label asp-for="UserID" class="control-label form-label"></label>
+                                <select asp-for="UserID" class="form-control" hidden>
+                                    <option>@ViewBag.UserID</option>
+                                </select>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+
+                                        <label asp-for="Checkin" class="form-label control-label">Check In</label>
+                                        <input asp-for="Checkin" class="form-control text-muted" id="a1" required>
+                                        <span asp-validation-for="Checkin" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Checkout" class="form-label control-label">Check out </label>
+                                        <input asp-for="Checkout" class="form-control text-muted" id="a2" onblur="calculate()" required>
+                                        <span asp-validation-for="Checkout" class="text-danger"></span>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <div class="form-group">
+
+                                <label>Total Price in LE </label>
+                                <input id="a3" type="text" class="form-control" name="total_amt" placeholder="total price  "  disabled/>
+                            </div>
+
+                            
+
+                            <div class="form-group">
+                                <label asp-for="GuestNum" class="control-label form-label "></label>
+                                <input asp-for="GuestNum" class="form-control" value="1" min="1" max="@ViewBag.idg" type="number" required />
+                                <span class="select-arrow"></span>
+                                <span asp-validation-for="GuestNum" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="IdImg" class="form-label"> Your Id Image </label>
+                                <span><i class="fa-solid fa-image"></i></span>
+                                <input class="form-control text-muted" type="file" name="unitimg" />
+                                <span asp-validation-for="IdImg" class="text-danger"></span>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Phone" class="form-label">Your Number </label>
+                                <span><i class="fa-solid fa-phone"></i></span>
+                                <input asp-for="Phone" class="form-control " type="text" min="11" placeholder="Enter Your Number Please" pattern="[0-9]" required>
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                            <div class="form-btn text-center">
+                                <input type="submit" class=" btn btn-color" value="Reserve Now" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            </div>
+                      
+                            
+
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                    <div class="modal fade mt-5" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header ">
+                                                    <h1 class="modal-title  text-primary text-capitalize" id="exampleModalLabel">Congratulations</h1>
+
+                                                </div>
+                                                <div class=" text-dark" id="a4">
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <script>
+
+                            calculate = function () {
+                                var checkin = new Date(document.getElementById('a1').value);
+                                var checkout = new Date(document.getElementById('a2').value);
+                                var dif = Math.abs(checkout - checkin);
+                                d = dif / (1000 * 3600 * 24);
+                                var x = d * @ViewBag.P
+                                    document.getElementById('a3').value = x;
+                                document.getElementById('a4').innerHTML = `<h4>your reservation done <br/> pay cash ${x}LE</h3>`
+                            }
+
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

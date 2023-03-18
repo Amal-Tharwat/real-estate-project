@@ -1,0 +1,148 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<style>
+    .adminCard{
+        width: 24rem;
+        height: 10rem;
+        background-color: aliceblue ;
+       
+
+    }
+
+    .adminimage{
+        width: 6rem;
+        height: 6rem;
+    }
+</style>
+<pre>
+
+
+
+
+
+</pre>
+
+<section>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-4  mt-5 ">
+            <div class="col ">
+
+                <a asp-controller="Admin" asp-action="UnitsIndex" class="card adminCard ">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-6 position-absolute top-50 start-0 translate-middle-y">
+                                <h3>
+                                    Units
+                                </h3>
+                            </div>
+
+                            <div class="col-6 position-absolute top-50 end-0 translate-middle-y">
+                                <img src="~/Images/home.png" alt="home" class="adminimage">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+            </div>
+
+            <div class="col">
+
+                <a asp-controller="Admin" asp-action="ReservesIndex" class="card adminCard">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-6 position-absolute top-50 start-0 translate-middle-y">
+                                <h3>
+                                    Reservation
+                                </h3>
+                            </div>
+
+                            <div class="col-6 position-absolute top-50 end-0 translate-middle-y">
+                                <img src="~/Images/online-booking (1).png" alt="home" class="adminimage">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+            </div>
+
+
+            <div class="col  ">
+
+                <a asp-controller="Admin" asp-action="UsersIndex" class="card adminCard">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-6 position-absolute top-50 start-0 translate-middle-y">
+                                <h3>
+                                    User
+                                </h3>
+                            </div>
+
+                            <div class="col-6 position-absolute top-50 end-0 translate-middle-y">
+                                <img src="~/Images/team.png" alt="home" class="adminimage">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+            </div>
+
+            <div class="col  ">
+
+                <a asp-controller="Area" asp-action="Index" class="card adminCard">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-6 position-absolute top-50 start-0 translate-middle-y">
+                                <h3>
+                                    Area
+                                </h3>
+                            </div>
+
+                            <div class="col-6 position-absolute top-50 end-0 translate-middle-y">
+                                <img src="~/Images/map.png" alt="home" class="adminimage">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+            </div>
+
+            <div class="col">
+
+                <a asp-controller="Category" asp-action="Index" class="card adminCard">
+                    <div class="card-body">
+                        <div class="row">
+
+                            <div class="col-6 position-absolute top-50 start-0 translate-middle-y">
+                                <h3>
+                                    Category
+                                </h3>
+                            </div>
+
+                            <div class="col-6 position-absolute top-50 end-0 translate-middle-y">
+                                <img src="~/Images/menu.png" alt="home" class="adminimage">
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+
+
+            </div>
+        </div>
+
+    </div>
+</section>
+

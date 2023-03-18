@@ -1,0 +1,183 @@
+﻿@model projjjecttttt.Models.Unit
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div id="booking" class="section">
+
+    <div class="section-center-unit">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-md-push-7">
+                    <div class="booking-cta">
+                        <h1>Add your Unit Now</h1>
+                        <p>
+                            Helping You Get More For Your Real Estate.<br />
+                            Nobody does it better.
+
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-5 col-md-pull-5">
+                    <div class="booking-form">
+                        <form asp-controller="unit" asp-action="Create" method="post" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="AreaID" class="control-label form-label">Area</label>
+                                        <span><i class="fa-solid fa-layer-group"></i></span>
+
+                                        <select asp-for="AreaID" class="form-control" asp-items="ViewBag.AreaID"></select>
+
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="CategoryID" class="control-label form-label">Type</label>
+                                        <span><i class="fa-solid fa-house"></i></span>
+                                        <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label asp-for="UserID" class="control-label form-label"></label>
+                                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID" hidden></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address" class="form-label"> Address </label>
+                                <span><i class="fa-solid fa-location-dot"></i></span>
+                                <input asp-for="Address" class="form-control" type="text" placeholder="Enter Address Please" required>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Price" class="form-label control-label">Price</label>
+                                        <span> <i class="fa-solid fa-dollar-sign"></i></span>
+                                        <input asp-for="Price" class="form-control" type="text" placeholder="Enter Price Please" required>
+                                        <span asp-validation-for="Price" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="guestNo" class="form-label control-label"> Guests </label>
+                                        <span><i class="fa-solid fa-user-group"></i></span>
+                                        <input asp-for="guestNo" class="form-control" type="number" placeholder="Enter Maximum Guest Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="guestNo" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="RoomNum" class="form-label control-label"> Rooms </label>
+                                        <span><i class="fa-solid fa-bed"></i></span>
+                                        <input asp-for="RoomNum" class="form-control" type="number" min="1" placeholder="Enter Rooms Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="RoomNum" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="PathRoomNum" class="form-label control-label"> Bathrooms</label>
+                                        <span><i class="fa-solid fa-bath"></i></span>
+                                        <input asp-for="PathRoomNum" class="form-control" type="number" min="1"
+                                               placeholder="Enter Bathrooms Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="PathRoomNum" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <label asp-for="AminitiesID" class="form-label control-label"> Available Amenties </label>
+                            <div class="form-group text-center">
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("Wifi",false,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox1">
+                                        <i class="fa-solid fa-wifi"></i>
+                                        <p>Wifi</p>
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("AC",false ,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox2">
+                                        <i class="fa-solid fa-tv"></i>
+                                        <p>TV</p>
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("TV",false ,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox3">
+                                        <i class="fa-solid fa-fan"></i>
+                                        <p>Fan</p>
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("Fan",false ,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox4">
+                                        <i class="fa-regular fa-window-maximize"></i>
+                                        <p>AC</p>
+
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("LandLine",false ,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox5">
+                                        <i class="fa-solid fa-phone-volume"></i>
+                                        <p>Landline</p>
+                                    </label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    @Html.CheckBox("Parking",false ,new{@class="form-check-input"})
+                                    <label class="form-check-label" for="inlineCheckbox6">
+                                        <i class="fa-solid fa-warehouse"></i>
+                                        <p>Parking</p>
+                                    </label>
+                                </div>
+
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" class="form-label control-label"> Description </label>
+                                <span><i class="fa-solid fa-comment"></i></span>
+                                <textarea asp-for="Description" class="form-control" type="text" placeholder="Enter Description Please"
+                                          required></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Images File</span>
+                                <span><i class="fa-solid fa-image"></i></span>
+                                <input class="form-control" type="file" name="imgsfile" multiple="multiple" id="formFile" required>
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                            </div>
+
+                            <div class="form-btn text-center">
+                                <input type="submit" value="Add New Unit" class=" btn-color" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="JS/app.js"></script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

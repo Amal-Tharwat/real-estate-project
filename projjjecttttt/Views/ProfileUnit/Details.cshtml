@@ -1,0 +1,488 @@
+﻿@model projjjecttttt.Models.Unit
+
+
+@{
+    ViewData["Title"] = "Details";
+}
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://kit.fontawesome.com/95dc93da07.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<pre>
+
+
+
+
+</pre>
+<div class="tittle-of-section">
+    <h2>UNIT</h2>
+    <h6>Details</h6>
+    <div class="line"></div>
+</div>
+
+<section>
+    <div class="container">
+        <div id="property-image-slider" class="slick">
+
+            @foreach (var item2 in ViewBag.img)
+            {
+
+                <div>
+                    <img src="~/images/@item2.ImgSrc" alt="Property Image 1" />
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+<!-- We will use PrefixFree - a script that takes care of CSS3 vendor prefixes
+You can download it from https://leaverou.github.com/prefixfree/ -->
+<script src="http://thecodeplayer.com/uploads/js/prefixfree.js" type="text/javascript"></script>
+
+
+
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3> What to expect in this unit </h3>
+
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3  g-4  mt-5 ">
+
+                    <div class="col ">
+
+                        <button class="card containerCard">
+                            <div class="card-body">
+                                <div class="">
+
+                                    <div class=" mt-4 position-absolute top-0 start-50 translate-middle-x">
+                                        <h5 class="">
+                                            @Model.RoomNum  Bedroom
+                                        </h5>
+                                    </div>
+                                    <br />
+
+                                    <div class=" mb-4 position-absolute bottom-0 start-50 translate-middle-x">
+                                        <img src="~/Images/bed.png" alt="home" class="imagesize">
+                                    </div>
+
+                                </div>
+                            </div>
+                        </button>
+
+
+
+                    </div>
+
+                    <div class="col  ">
+
+                        <button class="card containerCard">
+                            <div class="card-body">
+
+                                <div class="">
+
+                                    <div class=" mt-4 position-absolute top-0 start-50 translate-middle-x">
+                                        <h5 class="">
+                                            @Model.PathRoomNum   Bath
+                                        </h5>
+                                    </div>
+                                    <br />
+
+                                    <div class=" mb-4 position-absolute bottom-0 start-50 translate-middle-x">
+                                        <img src="~/Images/bathtub.png" alt="home" class="imagesize">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </button>
+
+
+
+                    </div>
+
+
+                    <div class="col">
+
+                        <button class="card containerCard">
+                            <div class="card-body">
+                                <div class="">
+
+                                    <div class=" mt-4 position-absolute top-0 start-50 translate-middle-x">
+                                        <h5 class="">
+                                            @Model.guestNo  Guest
+                                        </h5>
+                                    </div>
+                                    <br />
+
+                                    <div class=" mb-4 position-absolute bottom-0 start-50 translate-middle-x">
+                                        <img src="~/Images/traveler.png" alt="home" class="imagesize">
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </button>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="row  m-5 p-5 ">
+        <div class="col-md-8">
+            <h3 class="mb-5">What this place offers</h3>
+            <div class="row">
+
+
+
+                @if (@Model.Aminities.Wifi == "True")
+                {
+                    <div class="col-6  rowMargin">
+                        <h3 class="text-decoration-none"><span><i class="fa-solid fa-wifi"></i></span> Wifi</h3>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6  rowMargin">
+                        <h3 class="text-decoration-line-through"><span><i class="fa-solid fa-wifi"></i></span> Wifi</h3>
+                    </div>
+                }
+
+                @if (@Model.Aminities.TV == "True")
+                {
+                    <div class="col-6 rowMargin ">
+                        <h3 class="text-decoration-none"> <span><i class="fa-solid fa-tv"></i></span> TV</h3>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 rowMargin ">
+                        <h3 class="text-decoration-line-through"> <span><i class="fa-solid fa-tv"></i></span> TV</h3>
+                    </div>
+                }
+
+
+                @if (@Model.Aminities.AC == "True")
+                {
+
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-none"><span><i class="fa-solid fa-wind"></i></span> AC</h3>
+                    </div>
+                }
+                else
+                {
+
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-line-through"><span><i class="fa-solid fa-wind"></i></span> AC</h3>
+                    </div>
+                }
+
+
+                @if (@Model.Aminities.Fan == "True")
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-none"> <span><i class="fa-solid fa-fan"></i></span> Fan</h3>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-line-through"> <span><i class="fa-solid fa-fan"></i></span> Fan</h3>
+                    </div>
+                }
+
+
+                @if (@Model.Aminities.Landline == "True")
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-none">
+                            <span><i class="fa-solid fa-phone-volume"></i></span>
+                            Landline
+                        </h3>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-line-through">
+                            <span><i class="fa-solid fa-phone-volume"></i></span>
+                            Landline
+                        </h3>
+                    </div>
+                }
+
+                @if (@Model.Aminities.Parking == "True")
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-none">
+                            <span><i class="fa-solid fa-square-parking"></i></span>
+                            Parking
+                        </h3>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-6 rowMargin">
+                        <h3 class="text-decoration-line-through">
+                            <span><i class="fa-solid fa-square-parking"></i></span>
+                            Parking
+                        </h3>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+
+
+
+
+        <div style="position:sticky;top:30px" class=" card col-md-4 rounded border-info shadow">
+
+            <div class="card-body">
+                <h5 class="card-title">Description</h5>
+                @*<h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>*@
+                <p class="card-text mb-3"> @Model.Description</p>
+                @*                        <p class="card-text mb-3">
+                Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+                </p>*@
+
+                <a class="btn btn-color" asp-controller="Reserve" asp-action="Create" asp-route-id="@Model.ID" asp-route-UserID="@User.Identity?.Name" asp-route-GuestNum="@Model.guestNo" asp-route-Price="@Model.Price" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reserve</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+@*  3D Model*@
+<section class="model3d">
+    <div class="model3dD">
+        <h1>3D Model</h1>
+        <iframe src="https://my.spline.design/hfs-3283f34a42ebf602d8c1b255c3b218f0/" frameborder="0" width="100%" height="600"></iframe>
+    </div>
+</section>
+
+
+<section class="product">
+
+    <button class="pre-btn"><img src="~/Images/arrow.png" alt=""></button>
+    <button class="nxt-btn"><img src="~/Images/arrow.png" alt=""></button>
+    <div>
+
+        <div class="container product-container ">
+
+            @foreach (var item in ViewBag.review)
+            {
+
+                <div class="product-card">
+
+                    <div class="block-text rel zmin">
+                        <h3>@item.UserID</h3>
+                        <div class="mark">
+                            My rating: <span class="rating-input text-warning">
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-solid fa-star"></i></span>
+                                <span><i class="fa-regular fa-star-half-stroke"></i></span>
+                            </span>
+                        </div>
+                        <p>
+                            @item.Details
+                        </p>
+                        <ins class="ab zmin sprite sprite-i-triangle block"></ins>
+                    </div>
+
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+
+<a asp-controller="reviews" asp-action="create" class="btn btn-info align-content-center" asp-route-id="@Model?.ID">Add new review</a>
+
+
+<script>
+    const productContainers = [...document.querySelectorAll('.product-container')];
+    const nxtBtn = [...document.querySelectorAll('.nxt-btn')];
+    const preBtn = [...document.querySelectorAll('.pre-btn')];
+
+    productContainers.forEach((item, i) => {
+        let containerDimensions = item.getBoundingClientRect();
+        let containerWidth = containerDimensions.width;
+
+        nxtBtn[i].addEventListener('click', () => {
+            item.scrollLeft += containerWidth;
+        })
+
+        preBtn[i].addEventListener('click', () => {
+            item.scrollLeft -= containerWidth;
+        })
+    })
+</script>
+
+
+
+
+
+@*<div>
+
+    <a asp-controller="Reserve" asp-action="Create" asp-route-id="@Model.ID" asp-route-UserID="@User.Identity?.Name" asp-route-GuestNum="@Model.guestNo" asp-route-Price="@Model.Price" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reserve</a>
+
+</div>*@
+<!-- Modal login / reserve -->
+<div class="modal fade mt-5" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="modal-header text-danger">
+                <h1 class="modal-title fs-5 text-danger" id="staticBackdropLabel">attention</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="text-danger"> If you not login please login first to could reserve </p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                <a style="color:white" class="btn btn-info" asp-controller="Reserve" asp-action="Create" asp-route-id="@Model.ID" asp-route-UserID="@User.Identity?.Name" asp-route-GuestNum="@Model.guestNo" asp-route-Price="@Model.Price">RESERVE</a>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-info">Edit</a> 
+    <a asp-action="delete" asp-route-id="@Model?.ID" class="btn btn-danger">Delete</a>
+
+</div>
+
+
+<script>
+    const imageSlider = $('#property-image-slider');
+
+
+    $('#image-view').on('click', () => {
+        map.hide();
+
+        imageSlider.show();
+    });
+
+
+
+    $('#property-image-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        centerMode: true,
+        variableWidth: true,
+        infinite: true,
+        prevArrow: '<a href="#" class="slick-arrow slick-prev"><span class="fa fa-chevron-left"></span></a>',
+        nextArrow: '<a href="#" class="slick-arrow slick-next"><span class="fa fa-chevron-right"></span></a>'
+    });
+
+    $('#properties-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        prevArrow: '<a href="#" class="slick-arrow slick-prev">previous</a>',
+        nextArrow: '<a href="#" class="slick-arrow slick-next">next</a>',
+        responsive: [
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true
+                }
+            },
+            {
+                breakpoint: 530,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true
+                }
+            }
+        ]
+    });
+
+
+
+</script>
+
+
+<footer style="background-color: #edf1f5;">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #00c3da;">footer content</h5>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                    voluptatem veniam, est atque cumque eum delectus sint!
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #00c3da;">links</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-1">
+                        <a asp-controller="message" asp-action="create" style="color: #4f4f4f;">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-1" style="letter-spacing: 2px; color: #00c3da;">opening hours</h5>
+                <table class="table" style="color: #4f4f4f; border-color: #666;">
+                    <tbody>
+                        <tr>
+                            <td>Mon - Fri:</td>
+                            <td>8am - 9pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sat - Sun:</td>
+                            <td>8am - 1am</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: #00c4da5c;">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+

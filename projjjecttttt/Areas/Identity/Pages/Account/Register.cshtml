@@ -1,0 +1,75 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "";
+    Layout = "_Layout2";
+}
+
+<link href="/css/site.css" />
+<script src="./js/site.js"></script>
+<body class="aa">
+    <pre>
+
+
+
+
+    </pre>
+<h1 >@ViewData["Title"]</h1>
+<div class="container ">
+        <div class="row  align-items-center  logincta">
+            <div class="col-md-6   tittle-of-section">
+                <h2>Register</h2>
+                <h6>Register</h6>
+                <div class="line"></div>
+            </div>
+            <div class=" row col-md-6   border border-info rounded-3 mt-5 py-2 bg-white shadow-lg loginform">
+        <form class="row g-1" id="registerForm"  asp-area="Identity"   asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                   @* <h2 style="color:#00c3da" class="dd">Create a new account...</h2>
+            <hr />*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-10">
+                <label asp-for="Input.FullName"></label>
+                <input style=" background-color: rgb(0 0 0 / 10%)" asp-for="Input.FullName" class="form-control" minlength="7" required />
+               <span asp-validation-for="Input.FullName" class="text-danger"></span>
+            </div>
+            <div class="col-10">
+                <label asp-for="Input.Email"></label>
+                        <input style=" background-color: rgb(0 0 0 / 10%)" asp-for="Input.Email" class="form-control" placeholder="name@example.com" aria-required="true" />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="col-10">
+                <label asp-for="Input.Age"></label>
+                        <input style=" background-color: rgb(0 0 0 / 10%)" asp-for="Input.Age" type="number" max="80" min="18" class="form-control" aria-required="true" />
+                <span asp-validation-for="Input.Age" class="text-danger"></span>
+            </div> 
+            <div class="col-10">
+                 <label asp-for="Input.Password"></label>
+                        <input style=" background-color: rgb(0 0 0 / 10%)" asp-for="Input.Password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!#$%^&*_=+-.]).{8,25}$" class="form-control" aria-required="true" />
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="col-10">
+                  <label asp-for="Input.ConfirmPassword"></label>
+                        <input style=" background-color: rgb(0 0 0 / 10%)" asp-for="Input.ConfirmPassword" class="form-control" onkeyup="validate_password()" aria-required="true" />
+                  <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+                    <a style="color:#00c3da" href="Login">if you have account login</a>
+                  
+                <span id="wrong_pass_alert"></span>
+                <div class="buttons">
+                        <button id="create" 
+                            class="btn btn-color" onclick="wrong_pass_alert()"  >
+                        Register
+                    </button>
+              </div>
+                   
+
+                </form>
+      </div>
+    </div>
+</div>
+    <script src="~/js/site.js"></script>
+</body>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    
+}

@@ -1,0 +1,22 @@
+﻿@*you should using its name space in viewImports*@
+@model RoleFormViewModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "_RoleForm";
+}
+@*to make form to send data by bosted to action=(add) in controller=(Roles) to create new role  *@
+<h1>_RoleForm</h1>
+
+<form method="post" asp-action="Add" asp-controller="Roles">
+    @*input-group to make the input near by submit button*@
+    <div class="input-group mb-3">
+        <input asp-for="Name" class="form-control" placeholder="Role Name" />
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Add New Role</button>
+        </div>
+    </div>
+    <span asp-validation-for="Name" class="text-danger"></span>
+</form>
+
+
+

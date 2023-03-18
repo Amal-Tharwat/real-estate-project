@@ -1,0 +1,34 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@{
+    var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
+}
+<ul class="nav nav-pills flex-column  border border-info rounded-3 shadow-lg ">
+    <li onclick="changeColor()" class="nav-item"><a style="color:#00c3da !important;background-color:white" class="nav-link @ManageNavPages.IndexNavClass(ViewContext)" id="profile" asp-page="./Index">Profile</a></li>
+    <li onclick="changeColor()" class="nav-item"><a style="color:#00c3da !important;background-color:white" class="nav-link @ManageNavPages.EmailNavClass(ViewContext)" id="email" asp-page="./Email">Email</a></li>
+    <li onclick="changeColor()" class="nav-item"><a style="color:#00c3da !important;background-color:white" class="nav-link @ManageNavPages.ChangePasswordNavClass(ViewContext)" id="change-password" asp-page="./ChangePassword">Password</a></li>
+    @if (hasExternalLogins)
+    {
+        <li id="external-logins" class="nav-item"><a id="external-login" class="nav-link @ManageNavPages.ExternalLoginsNavClass(ViewContext)" asp-page="./ExternalLogins">External logins</a></li>
+    }
+    <!---  <li class="nav-item"><a class="nav-link @ManageNavPages.TwoFactorAuthenticationNavClass(ViewContext)" id="two-factor" asp-page="./TwoFactorAuthentication">Two-factor authentication</a></li>-->
+    <li onclick="changeColor()" class="nav-item"><a style="color:#00c3da !important;background-color:white" class="nav-link @ManageNavPages.PersonalDataNavClass(ViewContext)" id="personal-data" asp-page="./PersonalData">Personal data</a></li>
+    <li onclick="changeColor()" class="nav-item"> <a class="nav-link" style="color:#00c3da !important;background-color:white" asp-controller="ProfileUnit" asp-action="index">Your Units </a></li>
+    <li onclick="changeColor()" class="nav-item"> <a style="color:#00c3da !important;background-color:white" class="nav-link" asp-controller="ProfileReserve" asp-action="index">Your Reserves </a></li>
+</ul>
+<script>
+    function changeColor() {
+        document.querySelectorAll(".nav-item").style.backgroundColor = '#00c3da';
+        document.querySelectorAll(".nav-item").style.color = 'white';
+
+    }
+        //const btn2 = document.getElementById('btn');
+
+        //btn2.addEventListener('click', function onClick(event) {
+
+        //    document.body#btn2.style.backgroundColor = '#00c3da';
+        //     document.body#btn2.style.color = 'white';
+
+
+
+        //});
+</script>

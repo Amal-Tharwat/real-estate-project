@@ -1,0 +1,125 @@
+﻿@model IEnumerable<projjjecttttt.Models.Unit>
+@{
+    ViewData["Title"] = "SearchByValue";
+
+}
+<div style="height :100px"></div>
+
+<section class="our-unit">
+    <form asp-controller="Unit" asp-action="SearchByValue" method="get">
+
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+                <div class="col searchby">
+                    <h3> Search By</h3>
+                </div>
+                <div class="col">
+                    <label class="form-label">Area</label>
+
+                    <select name="area" class="form-select " aria-label="Default select example">
+                        <option value="0"> all areas </option>
+
+                        @foreach (var item in @ViewBag.areanam)
+                        {
+                            <option value="@item.ID">   @item.name </option>
+
+                        }
+
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Type</label>
+
+                    <select id="category" name="category" class="form-select form-control" aria-label="Default select example">
+                        <option value="0"> all category </option>
+
+                        @foreach (var item in @ViewBag.type)
+                        {
+                            <option value="@item.ID">   @item.Type </option>
+
+                        }
+
+
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Price" class="form-label">Price</label>
+                    <input name="price" type="number" class="form-control" value="0" min="0">
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Search" class="btn btn-color" />
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </form>
+
+
+</section>
+
+
+<section class="our-unit">
+    <div class=" container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            @foreach (var item in Model)
+            {
+                var imgUnitId = item.Images.Where(a => a.UnitID == item.ID).ToList();
+
+                <div class=" col">
+                    <div class="card border  border-2 shadow  cardSize">
+
+                        @if (imgUnitId.Count() > 0)
+                        {
+                            <img src="~/Images/@imgUnitId[0].ImgSrc" class="m-1 rounded-2 imgSize" alt="...">
+                        }
+                        else
+                        {
+                            <img src="" class=" m-1 rounded-2 imgSize" alt="...">
+                        }
+
+
+
+                        <div class="card-body ContentSize">
+
+                            <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Category.Type) <span> ,   @Html.DisplayFor(modelItem => item.Area.name)   </span></h5>
+                            <div class="card-text">
+                                <div class="row">
+
+                                    <span class="col-6">
+                                        <i class="fa-regular fa-user"></i>
+                                        @Html.DisplayFor(modelItem => item.guestNo) guest
+                                    </span>
+
+
+                                    <span class="col-6">
+                                        <i class="fa-solid fa-bed"></i>  @Html.DisplayFor(modelItem => item.RoomNum) room
+                                    </span>
+
+
+                                    <span class="col-6">
+                                        <i class="fa-solid fa-bath"></i>
+                                        @Html.DisplayFor(modelItem => item.PathRoomNum) bath
+                                    </span>
+
+                                </div>
+                                <p>  @Html.DisplayFor(modelItem => item.Price) LE <span> per day</span></p>
+                            </div>
+                            <div class="cardbtn">
+                                <a href="#" class="btn btn-info rounded-pill w-100 ">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+

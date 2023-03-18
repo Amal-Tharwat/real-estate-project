@@ -1,0 +1,138 @@
+﻿@model projjjecttttt.Models.Unit
+
+
+
+<div style="height :120px"></div>
+
+
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-push-5">
+                    <div class="booking-cta">
+                        <h1>Update Your Unit Details</h1>
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-md-pull-7">
+                    <div class="booking-form">
+                        <form asp-controller="ProfileUnit" asp-action="Edit" method="post" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label asp-for="AreaID" class="control-label form-label">Area</label>
+                                        <span><i class="fa-solid fa-layer-group"></i></span>
+
+                                        <select asp-for="AreaID" class="form-control" asp-items="ViewBag.AreaID"></select>
+
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group" hidden>
+                                        <label asp-for="CategoryID" class="control-label form-label">Type</label>
+                                        <span><i class="fa-solid fa-house"></i></span>
+                                        <select asp-for="CategoryID" class="form-control" asp-items="ViewBag.CategoryID"></select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                    <div class="form-group" hidden>
+                                        <label asp-for="AminitiesID" class="control-label form-label">Type</label>
+                                        <span><i class="fa-solid fa-house"></i></span>
+                                        <select asp-for="AminitiesID" class="form-control" asp-items="ViewBag.AminitiesID"></select>
+                                        <span class="select-arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" hidden>
+                                <label asp-for="UserID" class="control-label form-label"></label>
+                                <select asp-for="UserID" class="form-control" asp-items="ViewBag.UserID" hidden></select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Address" class="form-label"> Address </label>
+                                <span><i class="fa-solid fa-location-dot"></i></span>
+                                <input readonly asp-for="Address" class="form-control" type="text" placeholder="Enter Address Please" required>
+                                <span asp-validation-for="Address" class="text-danger"></span>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Price" class="form-label control-label">Price</label>
+                                        <span> <i class="fa-solid fa-dollar-sign"></i></span>
+                                        <input asp-for="Price" class="form-control" type="text" placeholder="Enter Price Please" required>
+                                        <span asp-validation-for="Price" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="guestNo" class="form-label control-label"> Guests </label>
+                                        <span><i class="fa-solid fa-user-group"></i></span>
+                                        <input asp-for="guestNo" class="form-control" type="number" placeholder="Enter Maximum Guest Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="guestNo" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="RoomNum" class="form-label control-label"> Rooms </label>
+                                        <span><i class="fa-solid fa-bed"></i></span>
+                                        <input readonly asp-for="RoomNum" class="form-control" type="number" min="1" placeholder="Enter Rooms Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="RoomNum" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="PathRoomNum" class="form-label control-label"> Bathrooms</label>
+                                        <span><i class="fa-solid fa-bath"></i></span>
+                                        <input readonly asp-for="PathRoomNum" class="form-control" type="number" min="1"
+                                               placeholder="Enter Bathrooms Number Please" pattern="[0-9]" required>
+                                        <span asp-validation-for="PathRoomNum" class="text-danger"></span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" class="form-label control-label"> Description </label>
+                                <span><i class="fa-solid fa-comment"></i></span>
+                                <textarea asp-for="Description" class="form-control" type="text" placeholder="Enter Description Please"
+                                          required></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+
+                            </div>
+                            <div class="form-group">
+                                <span class="form-label">Images File</span>
+                                <span><i class="fa-solid fa-image"></i></span>
+                                <input class="form-control" type="file" name="imgsfile" multiple="multiple" id="formFile" >
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+                            </div>
+
+                            <div class="form-btn text-center">
+                                <input type="submit" value="Update" class=" submit-btn" />
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+</div>
+
+<script src="JS/app.js"></script>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<projjjecttttt.Models.Unit>
+@{
+    ViewData["Title"] = "UserUnit";
+
+}
+<style>
+    .profile {
+        flex: 0 0 auto;
+        width: 25rem;
+        /*   width: 400px;*/
+        height: 30rem;
+        margin-right: 30px;
+    }
+
+
+</style>
+
+
+<pre>
+
+
+
+</pre>
+
+<section class="product">
+
+    <button class="pre-btn"><img src="~/Images/arrow.png" alt=""></button>
+    <button class="nxt-btn"><img src="~/Images/arrow.png" alt=""></button>
+
+
+    <div class="container product-container ">
+            @foreach (var item in Model)
+            {
+                var imgUnitId = item.Images.Where(a => a.UnitID == item.ID).ToList();
+
+            <div class="profile">
+
+                <div class="card border  border-2 shadow  profileunit">
+
+                        @if (imgUnitId.Count() > 0)
+                        {
+                            <img src="~/Images/@imgUnitId[0].ImgSrc" class="m-1 rounded-2 imgSize" alt="...">
+                        }
+                        else
+                        {
+                            <img src="" class=" m-1 rounded-2 imgSize" alt="...">
+                        }
+                    <div class="card-body ContentSize">
+                            <h5 class="card-title"> @Html.DisplayFor(modelItem => item.Category.Type) <span> ,   @Html.DisplayFor(modelItem => item.Area.name)</h5>
+                        <div class="card-text">
+                            <div class="row">
+
+                                <span class="col-6">
+                                    <i class="fa-regular fa-user"></i>
+                                        @Html.DisplayFor(modelItem => item.guestNo) Guest
+                                </span>
+
+
+                                <span class="col-6">
+                                    <i class="fa-solid fa-bed"></i>
+                                        @Html.DisplayFor(modelItem => item.RoomNum)  Room
+                                </span>
+
+
+                                <span class="col-6">
+                                    <i class="fa-solid fa-bath"></i>
+                                        @Html.DisplayFor(modelItem => item.PathRoomNum) Bathroom
+                                </span>
+
+                            </div>
+                                <p>  @Html.DisplayFor(modelItem => item.Price) LE <span> per day</span></p>
+
+                                    <div class="cardbtn">
+                                        <div class="row">
+                                    <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-color   mb-2   w-100 ">Details</a>
+                                    <a asp-controller="ProfileReserve" asp-action="ReservesonUnit" asp-route-id="@item.ID" class="btn btn-color w-100 ">Reservation on your unit</a>
+
+
+
+
+
+                                        </div>
+
+                                    </div>
+                        </div>
+                   
+                    </div>
+
+
+               
+
+                </div>
+                </div>
+            }
+
+           
+
+
+        </div>
+    
+</section>
+

@@ -1,0 +1,172 @@
+﻿@model IEnumerable<projjjecttttt.Models.Unit>
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div style="height :100px"></div>
+<section class="our-unit">
+    <div class="tittle-of-section">
+        <h2>UNITS</h2>
+        <h6>Our Units</h6>
+        <div class="line"></div>
+    </div>
+    <form asp-controller="Unit" asp-action="SearchByValue" method="get">
+
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
+                <div class="col searchby">
+                    <h3 class="text-center" style=" color: #00c3da;"> Search By</h3>
+                </div>
+                <div class="col">
+                    <label class="form-label">Area</label>
+
+                    <select name="area" class="form-select " aria-label="Default select example">
+                        <option value="0"> all areas </option>
+
+                        @foreach (var item in @ViewBag.areanam)
+                        {
+                            <option value="@item.ID">   @item.name </option>
+
+                        }
+
+                    </select>
+                </div>
+                <div class="col">
+                    <label class="form-label">Type</label>
+
+                    <select id="category" name="category" class="form-select form-control" aria-label="Default select example">
+                        <option value="0"> all category </option>
+
+                        @foreach (var item in @ViewBag.type)
+                        {
+                            <option value="@item.ID">   @item.Type </option>
+
+                        }
+
+
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="Price" class="form-label">Price</label>
+                    <input name="price" type="number" class="form-control" value="0" min="0">
+                </div>
+
+                <div> <input type="submit" value="Search" class="btn btn-color searchbtn" />                 </div>
+            </div>
+
+        </div>
+    </form>
+
+
+</section>
+
+
+<section class="our-unit">
+    <div class=" container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+            @foreach (var item in Model)
+            {
+                var imgUnitId = item.Images.Where(a => a.UnitID == item.ID).ToList();
+
+                <div class=" col">
+                    <div class="card border  border-2 shadow  cardSize">
+
+
+                        @if (imgUnitId.Count() > 0)
+                        {
+                            <img src="~/Images/@imgUnitId[0].ImgSrc" class="m-1 rounded-2 imgSize" alt="...">
+                        }
+                        else
+                        {
+                            <img src="" class=" m-1 rounded-2 imgSize" alt="...">
+                        }
+
+
+
+                        <div class="card-body ContentSize">
+
+                            <h5 class="card-title">  @Html.DisplayFor(modelItem => item.Category.Type) <span> ,   @Html.DisplayFor(modelItem => item.Area.name)   </span></h5>
+                            <div class="card-text">
+                                <div class="row">
+
+                                    <span class="col-6">
+                                        <i class="fa-regular fa-user"></i>
+                                        @Html.DisplayFor(modelItem => item.guestNo) guest
+                                    </span>
+
+
+                                    <span class="col-6">
+                                        <i class="fa-solid fa-bed"></i>  @Html.DisplayFor(modelItem => item.RoomNum) room
+                                    </span>
+
+
+                                    <span class="col-6">
+                                        <i class="fa-solid fa-bath"></i>
+                                        @Html.DisplayFor(modelItem => item.PathRoomNum) bath
+                                    </span>
+
+                                </div>
+                                <p>  @Html.DisplayFor(modelItem => item.Price) LE <span> per day</span></p>
+                            </div>
+                            <div class="cardbtn mb-3">
+                                <a asp-action="Details" asp-route-id="@item.ID" class="btn btn-color w-100 ">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</section>
+
+
+<footer style="background-color: #edf1f5;">
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-lg-6 col-md-12 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #00c3da;">footer content</h5>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                    voluptatem veniam, est atque cumque eum delectus sint!
+                </p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-3" style="letter-spacing: 2px; color: #00c3da;">links</h5>
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-1">
+                        <a asp-controller="message" asp-action="create" style="color: #4f4f4f;">Contact Us</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5 class="mb-1" style="letter-spacing: 2px; color: #00c3da;">opening hours</h5>
+                <table class="table" style="color: #4f4f4f; border-color: #666;">
+                    <tbody>
+                        <tr>
+                            <td>Mon - Fri:</td>
+                            <td>8am - 9pm</td>
+                        </tr>
+                        <tr>
+                            <td>Sat - Sun:</td>
+                            <td>8am - 1am</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="text-center p-3" style="background-color: #00c4da5c;">
+        © 2020 Copyright:
+        <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+
