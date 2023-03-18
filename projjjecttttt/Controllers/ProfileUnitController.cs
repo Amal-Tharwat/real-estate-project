@@ -24,6 +24,7 @@ namespace projjjecttttt.Controllers
         public async Task<IActionResult> Index()
         {
             List<Area> areas = new List<Area>();
+
             List<Area> areanum = _context.Area.ToList();
             ViewBag.areanum = areanum;
             List<Category> categories = new List<Category>();
